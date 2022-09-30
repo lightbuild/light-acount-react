@@ -1,0 +1,54 @@
+@import_normalize;
+
+//Color Variable
+$color-primary:#c69963;
+$color-primary-dark:#b28451;
+
+$color-secondary:#101d2c;
+
+$color-grey-light-1:#f9f7f6;
+$color-grey-light-2:#aaa;
+
+$color-grey-dark-1:#54484a;
+$color-grey-dark-2:#6d5d4b;
+
+//Font Variable
+
+//font hei
+$font-primary:-apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+
+$font-display:'Josefin Sans',sans-serif;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;//1rem = 10px;
+}
+
+body{
+  font-family: $font-primary;
+  color:$color-grey-dark-2;
+  font-weight: 300;
+  line-height:1.2;
+
+  min-height:100vh;
+}
+
+ul,ol{
+  list-style:none;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+
+
