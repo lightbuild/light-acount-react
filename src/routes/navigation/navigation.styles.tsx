@@ -21,18 +21,20 @@ export const Nav= styled.nav`
     font-size:1.6rem;
     >li{
       width:33.3333%;
-      padding:1.6rem;
+      text-align: center;
+      >a{
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+        padding:.4rem 0;
+        > svg{
+          fill:red;
+          width:2.4rem;
+          height: 2.4rem;
+        }
+      }
+      
     }
   }
 `
-export const LogoContainer = styled(Link)`
-  display: flex;
-  flex-direction:column;
-  justify-content: center;
-  align-items: center;
-  svg{
-    fill:red;
-    width:2.4rem;
-    height: 2.4rem;
-  }
-`;

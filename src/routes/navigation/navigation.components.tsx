@@ -1,11 +1,11 @@
-import {Outlet,Link} from 'react-router-dom';
+import {Link, Outlet} from 'react-router-dom';
 import React, {Fragment} from 'react';
 import {ReactComponent as LabelLogo} from 'assets/icons/label.svg';
 import {ReactComponent as MongyLogo} from 'assets/icons/money.svg';
 import {ReactComponent as StatisticsLogo} from 'assets/icons/statistics.svg';
 
 import {
-  Wrapper, Main, Nav,LogoContainer
+  Wrapper, Main, Nav
 } from './navigation.styles';
 
 
@@ -19,22 +19,22 @@ const Navigation = () => {
         <Nav>
           <ul>
             <li>
-              <LogoContainer to="/tags">
+              <Link to="/tags">
                 <LabelLogo/>
                 <h4>标签</h4>
-              </LogoContainer>
+              </Link>
             </li>
             <li>
-              <LogoContainer to="/money">
+              <Link to="/money">
                 <MongyLogo/>
                 <h4>记账</h4>
-              </LogoContainer>
+              </Link>
             </li>
             <li>
-              <LogoContainer to="/statistics">
+              <Link to="/statistics">
                 <StatisticsLogo/>
                 <h4>统计</h4>
-              </LogoContainer>
+              </Link>
             </li>
           </ul>
         </Nav>
