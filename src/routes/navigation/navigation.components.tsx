@@ -1,4 +1,4 @@
-import {Link, Outlet} from 'react-router-dom';
+import {NavLink, Outlet} from 'react-router-dom';
 import React, {Fragment} from 'react';
 import {ReactComponent as LabelLogo} from 'assets/icons/label.svg';
 import {ReactComponent as MongyLogo} from 'assets/icons/money.svg';
@@ -19,22 +19,22 @@ const Navigation = () => {
         <Nav>
           <ul>
             <li>
-              <Link to="/tags">
+              <NavLink to="/tags" >
                 <LabelLogo/>
                 <h4>标签</h4>
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/money">
+              <NavLink to="/money" >
                 <MongyLogo/>
                 <h4>记账</h4>
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/statistics">
+              <NavLink to="/statistics" >
                 <StatisticsLogo/>
                 <h4>统计</h4>
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </Nav>

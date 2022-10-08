@@ -33,6 +33,12 @@ export const Nav= styled.nav`
           width:2.4rem;
           height: 2.4rem;
         }
+        &.active{
+          color:blue;
+          svg{
+            fill:blue;
+          }
+        }
       }
       
     }
