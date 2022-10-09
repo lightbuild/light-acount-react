@@ -2,6 +2,7 @@ import {Routes, Route} from "react-router-dom";
 
 import React from 'react';
 import Navigation from './routes/navigation/navigation.components';
+import Money from './routes/money/Money';
 
 const App =() =>{
   return(
@@ -22,9 +23,7 @@ function Home(){
 function Tags(){
   return <h2>标签</h2>
 }
-function Money(){
-  return <h2>记账</h2>
-}
+
 function Statistics(){
   return <h2>统计</h2>
 }
