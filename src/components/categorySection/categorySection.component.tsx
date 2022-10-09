@@ -1,12 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {CategoryContainer} from './categorySection.styles';
 
 const CategorySection = () =>{
+  const categoryMap = {"-":"支出","+":"收入"}
+  const [categoryList] = useState<('-'|'+')[]>(['-','+']);
+  const [category,setCategory] = useState('-');
+
   return(
     <CategoryContainer>
       <ul>
-        <li className='selected'>支出</li>
-        <li>收入</li>
+        {categoryList.map(item =>
+          <li key={item}
+            onClick={() =>{setCategory(item)}}
+            className={category===item ?'selected':''}
+          >{categoryMap[item]}</li>
+        )}
       </ul>
     </CategoryContainer>
   )
