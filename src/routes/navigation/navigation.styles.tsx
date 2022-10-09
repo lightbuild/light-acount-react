@@ -3,13 +3,14 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   min-height:100vh;
   background: white;
-  
   display: flex;
   flex-direction: column;
 `;
 
 export const Main = styled.div`
   flex-grow:1;
+  overflow:auto;
+  display: flex;
 `
 export const Nav= styled.nav`
   box-shadow:0 0 3px rgba(0,0,0,0.25);

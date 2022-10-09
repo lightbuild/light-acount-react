@@ -2,7 +2,7 @@ import {Routes, Route} from "react-router-dom";
 
 import React from 'react';
 import Navigation from './routes/navigation/navigation.components';
-import Money from './routes/money/Money';
+import Money from './routes/money/money.component';
 
 const App =() =>{
   return(
