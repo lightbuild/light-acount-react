@@ -14,6 +14,9 @@ export const TagsContainer = styled.section`
       padding: .3rem 1.8rem;
       font-size: 1.4rem;
       margin: .8rem 1.2rem;
+      &.selected{
+        background: #f60;
+      }
     }
   }
 
