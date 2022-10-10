@@ -1,10 +1,26 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {NumberPadContainer} from './numberPadSection.styles';
 
-const NumberPadSection = () => {
-  const [output, setOutput] = useState('0');
+type Props = {
+  value: number,
+  onChange: (value: number) => void,
+  onOk?:()=>void;
+}
+
+const NumberPadSection: React.FC<Props> = (props) => {
+  const output = props.value.toString();
+  const setOutput = (output: string) => {
+    let value;
+    if (output.length > 16) {
+      value = parseFloat(output.slice(0, 16));
+    } else if (output.length === 0) {
+      value = 0;
+    } else {
+      value = parseFloat(output);
+    }
+    props.onChange(value);
+  };
   const onClickButtonWrapper = (e: React.MouseEvent) => {
-    if (output.length>16){return;}
     const text = (e.target as HTMLButtonElement).textContent;
     if (text === null) {return;}
     switch (text) {
@@ -25,21 +41,21 @@ const NumberPadSection = () => {
         }
         break;
       case '.':
-        if (output.indexOf('.')>=0){return}
-        setOutput(output+'.')
-        break
+        if (output.indexOf('.') >= 0) {return;}
+        setOutput(output + '.');
+        break;
       case '删除':
-        if (output.length===0){
-          setOutput('')
-        }else{
-          setOutput(output.slice(0,-1))
+        if (output.length === 0) {
+          setOutput('');
+        } else {
+          setOutput(output.slice(0, -1));
         }
         break;
       case '清空':
-        setOutput('')
+        setOutput('0');
         break;
       case 'OK':
-        console.log('OK');
+        if(props.onOk){props.onOk()}
         break;
     }
   };

@@ -1,12 +1,16 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef} from 'react';
 import {NotesContainer} from './notesSecton.styles';
+type Props = {
+  value:string;
+  onChange:(value:string)=>void
+}
 
-const NotesSection = () =>{
-  const [note,setNote] = useState('');
+const NotesSection:React.FC<Props> = (props) =>{
+  const note = props.value;
   const refInput = useRef<HTMLInputElement>(null)
   const onBlur = () =>{
       if(refInput.current !== null){
-        setNote(refInput.current.value);
+        props.onChange(refInput.current.value);
       }
   }
     return(
