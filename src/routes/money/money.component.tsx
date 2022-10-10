@@ -10,39 +10,33 @@ import NumberPadSection from '../../components/numberPadSection/numberPadSection
 type Category= '-'|'+'
 
 const Money = () => {
-  const [selected,setSelectedTags] = useState({
+  const [selected,setSelected] = useState({
     tags:[] as string[],
     note:'',
     category:'-' as Category,
     amount:0
   })
+
+  const onChange= (obj:Partial<typeof selected>) =>{
+      setSelected({
+        ...selected,
+        ...obj
+      })
+  }
+
   return (
     <SectionWraaper>
       <NumberPadSection value={selected.amount}
-                        onChange={(amount:number)=>setSelectedTags({
-                          ...selected,
-                          amount: amount
-                        })}
+                        onChange={(amount) => onChange({amount})}
                         onOk={()=>{}}
       />
       <CategorySection value={selected.category}
-                       onChange={(category:Category)=>setSelectedTags({
-                         ...selected,
-                         category: category
-                       })}
+                       onChange={(category) => onChange({category})}
       />
       <NotesSection value={selected.note}
-                    onChange={(note) =>setSelectedTags({
-                      ...selected,
-                      note: note
-                    })
-                    }/>
+                    onChange={(note) => onChange({note})}/>
       <TagsSection value={selected.tags}
-                   onChange={(tags) =>setSelectedTags({
-                     ...selected,
-                     tags: tags
-                   })
-      }/>
+                   onChange={(tags) => onChange({tags})}/>
       {selected.tags.join(',')}
       <hr/>
       {selected.note}
