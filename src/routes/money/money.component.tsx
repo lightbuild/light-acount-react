@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 import {SectionWraaper} from './money.styles';
 
-import TagsSection from '../../components/tagsSection/tagsSection.component';
-import NotesSection from '../../components/notesSection/notesSection.component';
-import CategorySection from '../../components/categorySection/categorySection.component';
-import NumberPadSection from '../../components/numberPadSection/numberPadSection.component';
+import TagsSection from '../../components/tags-section/tagsSection.component';
+import NotesSection from '../../components/notes-section/notesSection.component';
+import CategorySection from '../../components/category-section/categorySection.component';
+import NumberPadSection from '../../components/numberPad-section/numberPadSection.component';
 
 type Category= '-'|'+'
 

@@ -9,17 +9,13 @@ const App =() =>{
   return(
     <Routes>
       <Route path='/' element={ <Navigation/>}>
-        <Route index element={<Home/>}></Route>
-        <Route path='/tags' element={<Tags/>}></Route>
-        <Route path='/money' element={<Money/>}></Route>
+        <Route index element={<Money/>}></Route>
+        <Route path='/tags/*' element={<Tags/>}></Route>
         <Route path='/statistics' element={<Statistics/>}></Route>
       </Route>
       <Route path='*' element={<NoMatch/>}></Route>
     </Routes>
   )
-}
-function Home(){
-  return <h2>hello world!</h2>
 }
 
 function Statistics(){

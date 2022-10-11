@@ -1,27 +1,15 @@
-import React from 'react';
-import {useTags} from '../../utils/useTags';
-import {TagList, Button, Center} from './tags.styles';
-import {ReactComponent as RightLogo} from 'assets/icons/right.svg';
+import {Routes, Route} from 'react-router-dom';
+
+import TagsPreview from '../tags-preview/tags-preview.component';
+import TagEdit from '../tag-edit/tag-edit.component';
 
 const Tags = () => {
-  const {tags, setTags} = useTags();
   return (
-    <div>
-      <TagList>
-        {tags.map(tag =>
-          <li key={tag}>
-            <span className="oneLine">{tag}</span>
-            <RightLogo/>
-          </li>
-        )}
-      </TagList>
-      <Center>
-        <Button>
-          新增标签
-        </Button>
-      </Center>
-    </div>
-  );
+    <Routes>
+      <Route index element={<TagsPreview/>}/>
+      <Route path=":tag" element={<TagEdit/>}/>
+    </Routes>
+  )
 };
 
 export default Tags;
