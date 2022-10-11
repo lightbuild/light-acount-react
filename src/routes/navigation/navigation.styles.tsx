@@ -8,10 +8,11 @@ export const Wrapper = styled.div`
 `;
 
 export const Main = styled.div`
+  position: relative;
   flex-grow:1;
   overflow:auto;
-  display: flex;
 `
+
 export const Nav= styled.nav`
   box-shadow:0 0 3px rgba(0,0,0,0.25);
   line-height:2.2rem;
