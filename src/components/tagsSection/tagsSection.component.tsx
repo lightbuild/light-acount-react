@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {TagsContainer} from './tagsSection.styles';
+import {useTags} from '../../utils/useTags';
 
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
 };
 
 const TagsSection:React.FC<Props> = (props) =>{
-  const [tags,setTags] = useState<string[]>(['衣','食','住','行'])
+  const {tags,setTags} = useTags()
 
   const selectedTags = props.value
 
