@@ -1,35 +1,36 @@
 import React from 'react';
 import {TagsContainer} from './tagsSection.styles';
 import {useTags} from '../../utils/useTags';
+import {createId} from '../../utils/creatId';
 
 
 type Props = {
-  value:string[];
-  onChange:(selected:string[])=>void;
+  value:number[];
+  onChange:(selected:number[])=>void;
 };
 
 const TagsSection:React.FC<Props> = (props) =>{
   const {tags,setTags} = useTags()
 
-  const selectedTags = props.value
+  const selectedTagIds = props.value
 
   const onAddTag = () =>{
     const tagName = window.prompt('请输入新增标签名')
     if(tagName !== null){
-      setTags([...tags,tagName]);
+      setTags([...tags,{id:createId(),name:tagName}]);
     }
   }
 
-  const onToggleTag =(tag:string) =>{
-    const index = selectedTags.indexOf(tag);
+  const onToggleTag =(tagId:number) =>{
+    const index = selectedTagIds.indexOf(tagId);
     if(index >= 0){
       //如果tag已经被选中，就将它从列表中踢出去
-      props.onChange(selectedTags.filter(t=>t!==tag));
+      props.onChange(selectedTagIds.filter(t=>t!==tagId));
     }else{
-      props.onChange([...selectedTags,tag])
+      props.onChange([...selectedTagIds,tagId])
     }
   }
-  const getClassName = (tag:string) => selectedTags.indexOf(tag) >= 0 ? 'selected':''
+  const getClassName = (tagId:number) => selectedTagIds.indexOf(tagId) >= 0 ? 'selected':''
 
     return (
       <TagsContainer>
@@ -37,11 +38,12 @@ const TagsSection:React.FC<Props> = (props) =>{
           {tags.map(tag =>
             <li
               onClick={() =>{
-                  onToggleTag(tag)
+                  onToggleTag(tag.id)
               }}
-              className={getClassName(tag)}
-              key={tag}>
-              {tag}
+              className={getClassName(tag.id)}
+              key={tag.name}>
+              {tag.id}
+              {tag.name}
             </li>
           )}
         </ol>

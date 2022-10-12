@@ -1,8 +1,16 @@
 import {useState} from 'react';
+import {createId} from './creatId';
 
-const useTags = () =>{
-  const [tags,setTags] = useState<string[]>(['衣','食','住','行'])
-  return{tags,setTags}
-}
+const defaultTags = [
+  {id: createId(), name: '衣'},
+  {id: createId(), name: '食'},
+  {id: createId(), name: '住'},
+  {id: createId(), name: '行'},
+];
 
-export {useTags}
+const useTags = () => {
+  const [tags, setTags] = useState<{ id: number,name: string }[]>(defaultTags);
+  return {tags, setTags};
+};
+
+export {useTags};

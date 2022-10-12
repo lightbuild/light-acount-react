@@ -4,14 +4,14 @@ import {ReactComponent as RightLogo} from 'assets/icons/right.svg';
 import {Link} from 'react-router-dom';
 
 const TagsPreview = () => {
-  const {tags, setTags} = useTags();
+  const {tags} = useTags();
   return (
     <div>
       <TagList>
         {tags.map(tag =>
-          <li key={tag}>
-            <Link to={tag}>
-              <span className="oneLine">{tag}</span>
+          <li key={tag.id}>
+            <Link to={tag.id.toString()}>
+              <span className="oneLine">{tag.name}</span>
               <RightLogo/>
             </Link>
           </li>
