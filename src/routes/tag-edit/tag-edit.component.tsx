@@ -1,11 +1,19 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
+import {useTags} from '../../utils/useTags';
 
-const TagEdit = () =>{
-   const {tag} = useParams()
-   return(
-     <div>{tag}</div>
-   )
+type Params = {
+  id: string
 }
 
-export default TagEdit
+const TagEdit: React.FC = () => {
+  const {findTag} = useTags();
+  const {id} = useParams<Params>();
+  const tag = findTag(parseInt(id!));
+
+  return (
+    <div>{tag.name}</div>
+  );
+};
+
+export default TagEdit;

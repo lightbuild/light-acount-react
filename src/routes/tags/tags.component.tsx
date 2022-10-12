@@ -7,7 +7,7 @@ const Tags = () => {
   return (
     <Routes>
       <Route index element={<TagsPreview/>}/>
-      <Route path=":tag" element={<TagEdit/>}/>
+      <Route path=":id" element={<TagEdit/>}/>
     </Routes>
   )
 };
