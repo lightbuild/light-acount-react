@@ -1,7 +1,11 @@
 import React from 'react';
 import {TagsContainer} from './tagsSection.styles';
+
+import {useSelector} from 'react-redux'
+import {selectorTagsItems} from '../../store/tags/tags.selector'
 import {useTags} from '../../utils/useTags';
 import {createId} from '../../utils/creatId';
+
 
 
 type Props = {
@@ -10,15 +14,16 @@ type Props = {
 };
 
 const TagsSection:React.FC<Props> = (props) =>{
-  const {tags,setTags} = useTags()
-
+  // const {tags,setTags} = useTags()
+  const tags = useSelector(selectorTagsItems)
   const selectedTagIds = props.value
 
   const onAddTag = () =>{
     const tagName = window.prompt('请输入新增标签名')
-    if(tagName !== null){
-      setTags([...tags,{id:createId(),name:tagName}]);
-    }
+    // if(tagName !== null){
+    //   setTags([...tags,{id:createId(),name:tagName}]);
+    // }
+    console.log(tagName);
   }
 
   const onToggleTag =(tagId:number) =>{

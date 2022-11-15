@@ -37,13 +37,6 @@ const Money = () => {
                     onChange={(note) => onChange({note})}/>
       <TagsSection value={selected.tagIds}
                    onChange={(tagIds) => onChange({tagIds})}/>
-      {selected.tagIds.join(',')}
-      <hr/>
-      {selected.note}
-      <hr/>
-      {selected.category}
-      <hr/>
-      {selected.amount}
     </SectionWraaper>
   );
 }
