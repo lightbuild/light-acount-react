@@ -6,3 +6,7 @@ export type TagItem = {
   id:number;
   name:string;
 }
+
+export type TagsItemMap = {
+  [key:number]:TagItem
+}

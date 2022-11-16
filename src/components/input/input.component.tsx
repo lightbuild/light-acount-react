@@ -1,16 +1,16 @@
-import React from 'react';
+import {InputHTMLAttributes,FC} from 'react';
 import {Label} from './input.styles';
 
-type Props = {
+type InputProps = {
   label:string
-} & React.InputHTMLAttributes<HTMLInputElement>;
+} & InputHTMLAttributes<HTMLInputElement>;
 
-const Input:React.FC<Props> = (props) =>{
-  const {label,...rest} = props
+const Input:FC<InputProps> = (props) =>{
+  const {label,...otherProps} = props
   return(
     <Label>
       <span>{label}</span>
-      <input {...rest}/>
+      <input {...otherProps}/>
     </Label>
   )
 }

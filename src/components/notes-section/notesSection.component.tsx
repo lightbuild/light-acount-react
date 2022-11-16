@@ -1,17 +1,17 @@
-import React, {ChangeEventHandler} from 'react';
+import {ChangeEvent,FC} from 'react';
 import {NotesContainer} from './notesSecton.styles';
 import Input from '../input/input.component';
 
 
-type Props = {
+type NoteProps = {
   value:string;
   onChange:(value:string)=>void
 }
 
-const NotesSection:React.FC<Props> = (props) =>{
+const NotesSection:FC<NoteProps> = (props) =>{
   const note = props.value;
 
-  const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+  const onChange = (e:ChangeEvent<HTMLInputElement>) => {
     props.onChange(e.target.value);
   };
 
