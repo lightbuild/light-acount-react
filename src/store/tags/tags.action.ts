@@ -1,16 +1,19 @@
 import {createAction, withMatcher, ActionWithPayload} from '../../utils/reducer/reuder.utils';
 import {TAGS_ACTION_TYPE, TagItem} from './tags.type';
+import {createId} from '../../utils/creatId';
 
 const addTagItem = (
   tagsItems: TagItem[],
-  tagToAdd: TagItem
 ): TagItem[] => {
-  const existingTag = tagsItems.find((tag: TagItem) => tag.name === tagToAdd.name);
-  if (existingTag) {
+  const tagName = window.prompt('请输入新增标签名');
+  if (tagName ==='' || tagName === null ) {
+    alert('标签名不能为空');
+    return tagsItems
+  }else if (tagsItems.find((tag: TagItem) => tag.name === tagName)) {
     alert('标签名已存在');
     return tagsItems;
   } else {
-    return [...tagsItems, tagToAdd];
+    return [...tagsItems, {id:createId(),name:tagName}];
   }
 };
 
@@ -38,10 +41,9 @@ export const setTagsItems = withMatcher((tags: TagItem[]):SetTagsItems =>
   createAction(TAGS_ACTION_TYPE.SET_TAGS_ITEM, tags));
 
 export const addItemToTags =(
-  tagsItems:TagItem[],
-  itemToAdd:TagItem
+  tagsItems:TagItem[]
 ) =>{
-  const newTagItems = addTagItem(tagsItems,itemToAdd)
+  const newTagItems = addTagItem(tagsItems)
   return setTagsItems(newTagItems)
 }
 

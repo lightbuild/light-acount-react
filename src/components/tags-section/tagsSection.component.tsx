@@ -7,7 +7,6 @@ import {
 } from '../../store/tags/tags.action';
 
 import {selectorTagsItems} from '../../store/tags/tags.selector';
-import {createId} from '../../utils/creatId';
 
 
 type Props = {
@@ -20,16 +19,7 @@ const TagsSection: React.FC<Props> = (props) => {
   const tags = useSelector(selectorTagsItems);
   const selectedTagIds = props.value;
 
-  const onAddTag = () => {
-    const tagName = window.prompt('请输入新增标签名');
-    console.log(tagName);
-    if (tagName ==='' || tagName === null ) {
-      alert('标签名不能为空');
-      return
-    } else {
-      dispatch(addItemToTags(tags, {id: createId(), name: tagName}));
-    }
-  };
+  const onAddTag = () => dispatch(addItemToTags(tags));
 
   const onToggleTag = (tagId: number) => {
     const index = selectedTagIds.indexOf(tagId);
