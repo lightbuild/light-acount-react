@@ -3,7 +3,7 @@ import logger from 'redux-logger';
 
 import {rootReducer} from './root-reducer';
 
-export type RootSate = ReturnType<typeof rootReducer>
+export type RootState = ReturnType<typeof rootReducer>
 
 const middlewares = [logger]
 

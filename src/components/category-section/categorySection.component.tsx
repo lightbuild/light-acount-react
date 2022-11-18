@@ -6,18 +6,18 @@ type Props = {
 }
 
 const CategorySection:React.FC<Props> = (props) =>{
-  const categoryMap = {"-":"支出","+":"收入"}
-  const [categoryList] = useState<('-'|'+')[]>(['-','+']);
-  const category= props.value
+  const typeMap = {"-":"支出","+":"收入"}
+  const [typeList] = useState<('-'|'+')[]>(['-','+']);
+  const type= props.value
 
   return(
     <CategoryContainer>
       <ul>
-        {categoryList.map(item =>
+        {typeList.map(item =>
           <li key={item}
             onClick={() =>{props.onChange(item)}}
-            className={category===item ?'selected':''}
-          >{categoryMap[item]}</li>
+            className={type===item ?'selected':''}
+          >{typeMap[item]}</li>
         )}
       </ul>
     </CategoryContainer>
