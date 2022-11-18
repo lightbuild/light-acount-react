@@ -1,5 +1,5 @@
-export enum TAGS_ACTION_TYPE  {
-  SET_TAGS_ITEM = 'SET_TAGS_ITEM',
+export enum Tags_Action_Type  {
+  set_tags_item = 'set_tags_item',
 }
 
 export type TagItem = {

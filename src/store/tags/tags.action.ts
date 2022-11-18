@@ -1,5 +1,5 @@
-import {createAction, withMatcher, ActionWithPayload} from '../../utils/reducer/reuder.utils';
-import {TAGS_ACTION_TYPE, TagItem} from './tags.type';
+import {ActionWithPayload, createAction, withMatcher} from '../../utils/reducer/reuder.utils';
+import {TagItem, Tags_Action_Type} from './tags.type';
 import {createId} from '../../utils/creatId';
 
 const addTagItem = (
@@ -35,10 +35,10 @@ const updateTagItem = (
   );
 };
 
-export type SetTagsItems = ActionWithPayload<TAGS_ACTION_TYPE.SET_TAGS_ITEM, TagItem[]>
+export type SetTagsItems = ActionWithPayload<Tags_Action_Type.set_tags_item, TagItem[]>
 
 export const setTagsItems = withMatcher((tags: TagItem[]):SetTagsItems =>
-  createAction(TAGS_ACTION_TYPE.SET_TAGS_ITEM, tags));
+  createAction(Tags_Action_Type.set_tags_item, tags));
 
 export const addItemToTags =(
   tagsItems:TagItem[]

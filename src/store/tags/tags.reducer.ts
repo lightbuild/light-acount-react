@@ -10,7 +10,7 @@ export type TagsState = {
   readonly tagsItems: TagItem[]
 }
 
-export const TAGS_INITIAL_STATE: TagsState = {
+export const tags_initial_state: TagsState = {
   tagsItems: [
     {id: createId(), name: '衣'},
     {id: createId(), name: '食'},
@@ -21,7 +21,7 @@ export const TAGS_INITIAL_STATE: TagsState = {
 
 
 export const tagsReducer = (
-  state = TAGS_INITIAL_STATE,
+  state =tags_initial_state,
   action: AnyAction
 ):TagsState => {
   if (setTagsItems.match(action)){
